@@ -1,0 +1,15 @@
+---
+- name: Fetch file from server1
+  hosts: newgroup
+  tasks:
+    - name: Fetch file
+      fetch:
+        src: file200
+        dest: /tmp
+- name: Copy file to server2 and server3
+  hosts: mygroup
+  tasks:
+    - name: copy file
+      copy:
+        src: /tmp/172.31.22.66/file200
+        dest: /tmp
